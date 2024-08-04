@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -5,17 +6,19 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
-}
-
+    background-image: url('images/wallpaper1.png'); 
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-position: center center; 
+  }
+  
 .content {
     display: flex;
     align-items: flex-start;
     width: 80%;
     height: 80%;
-    background: #fff;
-    border: 1px solid #ddd;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: #F2EEEB;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
 }
 
 .sidebar {
@@ -47,6 +50,7 @@ body {
 canvas {
     border: 1px solid #ccc;
     background-color: #fff;
+    cursor: url('images/cursor.png') 16 16, auto;
 }
 
 #chat {
