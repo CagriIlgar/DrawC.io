@@ -11,9 +11,9 @@ const PORT = process.env.PORT || 3000;
 io.on("connection", (socket) => {
     console.log("User connected", socket.id);
 
-    // Handle mouse movement
-    socket.on('mouseMovement', (data) => {
-        console.log('Mouse Movement Data:', data);
+    // Drawing events to all clients
+    socket.on('drawing', (data) => {
+        socket.broadcast.emit('drawing', data);
     });
 
     // Handle disconnection
@@ -25,5 +25,5 @@ io.on("connection", (socket) => {
 app.use(express.static('public'));
 
 httpServer.listen(PORT, () => {
-    console.log(`Server port: ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });

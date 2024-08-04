@@ -10,7 +10,7 @@
 </head>
 
 <body>
-       <div class="container">
+       <div class="content">
         <div class="sidebar" id="players">
             <h2>Players</h2>
             <ul>
@@ -19,7 +19,13 @@
                 <li>Player 3</li>
             </ul>
         </div>
-
+        <div class="drawing-area">
+            <div class="canvas-container">
+                <canvas id="drawingCanvas"></canvas>
+            </div>
+        </div>
+        <div class="sidebar" id="chat">
+            <h2>Sidebar</h2>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
