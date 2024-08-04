@@ -11,9 +11,14 @@ const PORT = process.env.PORT || 3000;
 io.on("connection", (socket) => {
     console.log("User connected", socket.id);
 
-    // Drawing events to all clients
+    // Broadcast drawing events to all clients
     socket.on('drawing', (data) => {
         socket.broadcast.emit('drawing', data);
+    });
+
+    // Broadcast reset event to all clients
+    socket.on('reset', () => {
+        io.emit('reset');
     });
 
     // Handle disconnection

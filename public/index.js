@@ -43,7 +43,7 @@ function interpolateAndDraw(fromX, fromY, toX, toY) {
         currentY = nextY;
     }
 
-    drawLine(currentX, currentY, toX, toY); // Ensure the final segment is drawn
+    drawLine(currentX, currentY, toX, toY);
 }
 
 function draw(e) {
@@ -60,9 +60,19 @@ function draw(e) {
     lastY = y;
 }
 
-// Listen for drawing events from other clients
 socket.on('drawing', ({ fromX, fromY, toX, toY }) => {
     interpolateAndDraw(fromX, fromY, toX, toY);
+});
+
+// Handle reset event from server
+socket.on('reset', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+});
+
+// Reset functionality
+document.getElementById('resetButton').addEventListener('click', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    socket.emit('reset');
 });
 
 canvas.addEventListener('mousedown', (e) => {
